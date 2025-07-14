@@ -16,10 +16,14 @@ function App() {
     'width': '200px'
   }
 
+  const [tasks, setTasks] = useState(['Drink water', 'Stand up'])
+
   function addToList(formData) {
     const newTask = formData.get('task')
     console.log(newTask)
   }
+
+  const taskElements = tasks.map(task => <Task></Task>)
 
   return (
     <>
@@ -31,7 +35,9 @@ function App() {
         </button>
       </form>
 
-      
+      {
+        taskElements
+      }
     </>
   )
 }

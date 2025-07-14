@@ -3,7 +3,7 @@ import { useState } from "react";
 import { mdiCheckboxBlankCircleOutline } from "@mdi/js"
 import { mdiCheckboxMarkedCircle } from '@mdi/js';
 
-export default function Task() {
+export default function Task(props) {
 	const [completed, setCompleted] = useState(false)
 	const crossOut = completed ? "line-through" : null
 	const styling = {
@@ -22,7 +22,7 @@ export default function Task() {
 					<Icon path={mdiCheckboxBlankCircleOutline} size={1}/>
 				}
 
-				<h1>HI</h1>
+				<p>HI</p>
 
 				<button>Delete</button>
 			</div>
