@@ -9,7 +9,8 @@ export default function Task(props) {
 	const styling = {
 		"display": "flex",
 		"align-items": "center",
-		"text-decoration-line": crossOut
+		"text-decoration-line": crossOut,
+		"gap": '10px'
 	}
 
 	return (
@@ -22,7 +23,7 @@ export default function Task(props) {
 					<Icon path={mdiCheckboxBlankCircleOutline} size={1}/>
 				}
 
-				<p>HI</p>
+				<p style={{'width': '300px'}}>{props.content}</p>
 
 				<button>Delete</button>
 			</div>

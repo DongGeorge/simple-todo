@@ -23,7 +23,7 @@ function App() {
     console.log(newTask)
   }
 
-  const taskElements = tasks.map(task => <Task></Task>)
+  const taskElements = tasks.map(task => <Task content={task}></Task>)
 
   return (
     <>
