@@ -20,7 +20,9 @@ function App() {
 
   function addToList(formData) {
     const newTask = formData.get('task')
-    console.log(newTask)
+    if (newTask && !tasks.includes(newTask)) {
+      setTasks(prev => [...prev, newTask])
+    }
   }
 
   const taskElements = tasks.map(task => <Task content={task}></Task>)
