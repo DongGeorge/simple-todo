@@ -25,7 +25,7 @@ function App() {
     }
   }
 
-  const taskElements = tasks.map(task => <Task content={task}></Task>)
+  const taskElements = tasks.map(task => <Task content={task} setTasks={setTasks}></Task>)
 
   return (
     <>

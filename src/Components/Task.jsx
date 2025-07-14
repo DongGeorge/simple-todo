@@ -9,23 +9,28 @@ export default function Task(props) {
 	const styling = {
 		"display": "flex",
 		"align-items": "center",
-		"text-decoration-line": crossOut,
 		"gap": '10px'
+	}
+
+	function deleteTask() {
+		if (confirm('Are you sure you want to remove this task?')) {
+			props.setTasks(prev => [...prev].filter(task => task !== props.content))
+		}
 	}
 
 	return (
 		<>
-			<div style={styling} onClick={() => setCompleted(prev => !prev)}>
-				{
-					completed ?
-					<Icon path={mdiCheckboxMarkedCircle} size={1}/>
-					:
-					<Icon path={mdiCheckboxBlankCircleOutline} size={1}/>
-				}
+			<div style={styling}>
+				<div style={styling} onClick={() => setCompleted(prev => !prev)}>
+					<Icon 
+						path={completed ? mdiCheckboxMarkedCircle : mdiCheckboxBlankCircleOutline}
+						size={1}
+					/>
 
-				<p style={{'width': '300px'}}>{props.content}</p>
+					<p style={{'width': '300px', "text-decoration-line": crossOut}}>{props.content}</p>
+				</div>
 
-				<button>Delete</button>
+				<button onClick={deleteTask}>Delete</button>
 			</div>
 		</>
 	)
