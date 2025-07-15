@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Task from './Components/Task'
 import { mdiPlusCircle } from '@mdi/js'
 import Icon from '@mdi/react'
@@ -19,6 +19,7 @@ function App() {
   }
 
   const [tasks, setTasks] = useState(['Drink water', 'Stand up'])
+  const [time, setTime] = useState(Temporal.Now.zonedDateTimeISO('America/New_York').toPlainTime())
 
   function addToList(formData) {
     const newTask = formData.get('task')
@@ -29,8 +30,22 @@ function App() {
 
   const taskElements = tasks.map(task => <Task content={task} setTasks={setTasks}></Task>)
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(Temporal.Now.zonedDateTimeISO('America/New_York').toPlainTime())
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const hours = String(time.hour % 12).padStart(2, '0')
+  const minutes = String(time.minute).padStart(2, '0')
+  const seconds = String(time.second).padStart(2, '0')
+
   return (
     <>
+      <h1 style={{ fontFamily: 'monospace' }}>{hours}:{minutes}:{seconds}</h1>
+
       <form style={addButtonStyle} action={addToList}>
         <input type="text" name='task' style={inputStyle}/>
         <button style={addButtonStyle}>

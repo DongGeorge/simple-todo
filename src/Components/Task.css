@@ -1,0 +1,17 @@
+.taskItem {
+	display: flex;
+	align-items: center;
+	padding: 12px;
+	border-radius: 12px;
+	margin: 5px;
+}
+
+.taskItem:hover {
+	background-color: silver;
+}
+
+@media (prefers-color-scheme: dark) {
+	.taskItem:hover {
+		background-color: slategray;
+	}
+}

@@ -2,6 +2,7 @@ import Icon from "@mdi/react"
 import { useState } from "react";
 import { mdiCheckboxBlankCircleOutline } from "@mdi/js"
 import { mdiCheckboxMarkedCircle } from '@mdi/js';
+import './Task.css'
 
 export default function Task(props) {
 	const [completed, setCompleted] = useState(false)
@@ -20,7 +21,7 @@ export default function Task(props) {
 
 	return (
 		<>
-			<div style={styling}>
+			<div className="taskItem">
 				<div style={styling} onClick={() => setCompleted(prev => !prev)}>
 					<Icon 
 						path={completed ? mdiCheckboxMarkedCircle : mdiCheckboxBlankCircleOutline}
