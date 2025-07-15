@@ -2,11 +2,13 @@ import { useState } from 'react'
 import Task from './Components/Task'
 import { mdiPlusCircle } from '@mdi/js'
 import Icon from '@mdi/react'
+import './App.css'
 
 function App() {
   const addButtonStyle = {
     "display": "flex",
     "align-items": "center",
+    'justify-content': 'center',
     'height': '60px',
     'gap': '10px'
   }
