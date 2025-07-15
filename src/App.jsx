@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import Task from './Components/Task'
-import { mdiPlusCircle } from '@mdi/js'
+import { Temporal } from '@js-temporal/polyfill'
 import Icon from '@mdi/react'
+import { mdiPlusCircle } from '@mdi/js'
+import Task from './Components/Task'
 import './App.css'
 
 function App() {
@@ -44,7 +45,8 @@ function App() {
 
   return (
     <>
-      <h1 style={{ fontFamily: 'monospace' }}>{hours}:{minutes}:{seconds}</h1>
+      <h1 style={{ 'fontFamily': 'monospace', 'margin-bottom': 0 }}>{hours}:{minutes}:{seconds}</h1>
+      <b>(EST / EDT)</b>
 
       <form style={addButtonStyle} action={addToList}>
         <input type="text" name='task' style={inputStyle}/>
